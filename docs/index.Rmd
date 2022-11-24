@@ -1,6 +1,6 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
+title: "Pattern of Inequality in the Prision System - Race"
+author: "Steven He"
 date: '2022-11-01'
 output: html_document
 ---
@@ -11,35 +11,63 @@ source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
+In this research, we will focus on addressing the ``pattern of inequality in the prision system`` that can be found by using the [incarceration-trends](https://github.com/vera-institute/incarceration-trends) dataset. Specifically, we will be addressing this problem by further investigate on `how different race can be treated differently in the prision system`.
 
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
 
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
 
 ## Introduction 
-[TODO]
+#### Social Issue
+In this society, people with different identity, race, sex, and background can be treated drastically different, which can be refereed as `social discrimination`. Yet, this should never exist as people should all be treated equally, no matter what gender, religion, race, and education level they are. In this research, we will be focusing on the pattern of inequality in the prison syste. Specifically, we will be addressing on how people with different race can be treated differently in different regions in the United States.
+
+#### Stakeholders
+`Direct Stakeholders` of this research can be those who suffered from the injustice that they might have received in the court or prison, mainly for those who are in minority.
+`Indirect Stakeholders` of this research, such as those who might get inspired from this research, can benefit from the research as the data visualization can be persuasive that there do appears to be a pattern of inequality in the prison system.
+
+#### Main Question
+Our main question that will be focused on in this research is to investigate if there do appear to have a pattern of inequality in the prison system. If so, what are some major factors that can be taken into account if someone wants to eliminate such discrimination.
+
+
 
 ## Data Summary 
-[TODO]
+To further answer our research question, we should start taking a look at the dataset to see if there are some clear evidences that a pattern of inequality in the prison system can be found. 
+```{r echo=TRUE}
+print(black_proportion)
+print(white_proportion)
+print(aapi_proportion)
+```
+From the summary data above, we can see three numbers each representing a percentage of the proportion of people that are in jail by different race. One thing stands out that the proportion of `black people` that are in jail is significantly larger than that of the `white people` and the `American Asian / Pacific Islander`. This can be a sign that shows how there might be a correlation of different race to the pattern of inquality in prison system.
 
-[TODO ... other sections ... See Canvas for details]
 
-_All the very best with your work!_
 
+## Growth of the U.S. Prison Population
+```{r echo=FALSE}
+plot_jail_pop_for_us()
+```
+
+
+From ``Figure 1``, we can see that there is a **direct relationship** between the ``Total Jail Population`` and ``Year``. From 1970 to 2018, the population of people in jail almost gets quadrupled. There were more and more people were sent to jail. To further investigate on how and what reason that caused such a dramatic increase of the jail population, we should procced to the next section to get a more detailed view of such scenario.
+
+
+## Growth of the U.S. Prison Population
+```{r echo=FALSE}
+plot_jail_pop_by_states(c("CA","NY","FL","TX"))
+```
+
+
+From ``Figure 2``, we can see that the U.S. Prison Population is relatively increasing as the time went by. In 2018, **California** has the most jail population among the four states; with **Texas** being the second, **Florida** being the third, and **New York** being the least. Yet, we also need to take the considerition of the total population of each states, where **California**, who has the most jail population, also has significantly more population than the rest of the states, so we can see that the population in jail also has a direct correlation between the total population of each states.
+
+
+## Jail Population by Race in Different Region
+```{r echo=FALSE}
+plot_jail_prop_by_region_and_race()
+```
+
+In ``figure 3``, we can see that among all the races, ``black people`` has the highest percentage of jail population in all regions. Surprisingly, the ``Native American`` also has one of the highest jail population in the ``midwest`` region. Nevertheless, ``Asian`` seems to have the lowest jail population in every region, so there might be a pattern where black people can possibly get discriminated such that there are more black people in the jail than the rest of the other races.
+
+
+## Black People Jail Population in the U.S.
+```{r echo=FALSE, warning = FALSE}
+map_black_jail_pop_2018()
+```
+
+In ``figure 4``, we can see that some states in the southern part, the west coast, and the east cost have significantly more black people in jail than the rest of the nation, which can be seen as a pattern where black people in southern part of the U.S. can be discriminated when in the prison system such that caused a huge difference comparing to those states that in the Northern part of the U.S.
